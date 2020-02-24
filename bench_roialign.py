@@ -100,12 +100,11 @@ def run_roialign(input_df):
 
 
 def main(filename):
-    #filename = "/root/detectron2/maskrcnn-roialign-inputsizes.csv"
     input_df = pd.read_csv(filename, header=0)
     result_df = run_roialign(input_df)
     print(result_df)
-    processfilename = filename.split('.')
-    outputfile = ('.').join(processfilename[:-1]) + "_out." + processfilename[-1]
+    processfilename = filename.split('/')
+    outputfile = ('/').join(processfilename[:-1]) + "maskrcnn-roialign-result.csv"
     result_df.to_csv(outputfile, index=False) 
 
 
