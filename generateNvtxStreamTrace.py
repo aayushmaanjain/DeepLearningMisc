@@ -219,7 +219,11 @@ def main(args):
         allEvents.extend(events)
     
     with open(args.output, 'w') as ofile:
-        json.dump(allEvents, ofile)
+        #json.dump(allEvents, ofile)
+        ofile.write(
+                '[' +
+                ',\n'.join(json.dumps(event) for event in allEvents) +
+                ']\n')
  
 
 if __name__ == '__main__':
